@@ -1,4 +1,4 @@
-# Un template d'Application en Ligne de Commande (CLI) utilisant Java >= 11 et la JEP 330
+# Un template d'Application en Ligne de Commande (CLI) utilisant Java et la JEP 330
 
 Le template **basic-java-quickstart** permet de démarrer une nouvelle application en commande ligne avec Java sans
 utiliser aucun système de build (autre que `make`).
