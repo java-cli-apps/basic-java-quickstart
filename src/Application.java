@@ -12,37 +12,37 @@ class Main {
         System.out.println(Language.guess().sayHello());
         System.exit(0);
     }
+}
 
-    private enum Language {
-        French("fr"), English("en");
+enum Language {
+    French("fr"), English("en");
 
-        private final String alias;
-        private final String langPrefix;
+    private final String alias;
+    private final String langPrefix;
 
-        Language(String alias) {
-            this.alias = alias;
-            this.langPrefix = alias;
-        }
+    Language(String alias) {
+        this.alias = alias;
+        this.langPrefix = alias;
+    }
 
-        public static Language guess() {
-            var langEnvVar = System.getenv("LANG");
-            var langPrefix = langEnvVar.substring(0, langEnvVar.indexOf('_'));
-            return byLangPrefix(langPrefix).orElseThrow(() -> new IllegalArgumentException("Unexpected Language: " + langPrefix));
-        }
+    static Language guess() {
+        var langEnvVar = System.getenv("LANG");
+        var langPrefix = langEnvVar.substring(0, langEnvVar.indexOf('_'));
+        return byLangPrefix(langPrefix).orElseThrow(() -> new IllegalArgumentException("Unexpected Language: " + langPrefix));
+    }
 
-        public String sayHello() {
-            Optional<Emoji> optionalEmoji = EmojiManager.getByAlias(alias);
-            String emoji = optionalEmoji.isPresent() ? " " + optionalEmoji.get().getEmoji() : "";
-            return switch (this) {
-                case French -> "Bonjour " + emoji;
-                case English -> "Hello " + emoji;
-            };
-        }
+    String sayHello() {
+        Optional<Emoji> optionalEmoji = EmojiManager.getByAlias(alias);
+        String emoji = optionalEmoji.map(value -> " " + value.getEmoji()).orElse("");
+        return switch (this) {
+            case French -> "Bonjour " + emoji;
+            case English -> "Hello " + emoji;
+        };
+    }
 
-        private static Optional<Language> byLangPrefix(String langPrefix) {
-            return stream(Language.values())
-                    .filter(language -> language.langPrefix.equals(langPrefix))
-                    .findAny();
-        }
+    private static Optional<Language> byLangPrefix(String langPrefix) {
+        return stream(Language.values())
+                .filter(language -> language.langPrefix.equals(langPrefix))
+                .findAny();
     }
 }
