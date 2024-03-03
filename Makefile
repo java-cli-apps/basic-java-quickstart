@@ -39,8 +39,8 @@ clean: ## Nettoyer le répertoire de build
 
 .PHONY: build
 
-APP_NAME := $(or $(APP_NAME), BasicQuickstart)
-APP_DIR = $(APP_NAME)
+APP_NAME := $(or $(APP_NAME), Basic-Quickstart)
+APP_DIR := $(shell echo $(APP_NAME) | tr '[:upper:]' '[:lower:]')
 BUILD = build
 STARTER_APP = Application
 BUILD_APP = $(BUILD)/$(APP_DIR)
