@@ -7,8 +7,7 @@ package: build ## Packager l'application dans un fichier .zip
 	cd $(BUILD) \
 		&& zip --quiet --recurse-paths $(APP_NAME).zip $(APP_DIR)
 
-build: ## Construire l'application
-	mkdir --parents $(BUILD_APP)/src $(BUILD_APP)/lib $(BUILD_APP)/bin
+build: .prepare-build-dir ## Construire l'application
 	cp --update --recursive src lib bin $(BUILD_APP)
 	cd $(BUILD_APP) \
 		&& mv src/$(STARTER_APP).java src/$(APP_NAME).java \
@@ -28,6 +27,9 @@ test-install: .check-install-dir ## Tester l'application installée
 
 clean: ## Nettoyer le répertoire de build
 	rm --force --recursive $(BUILD)
+
+.prepare-build-dir:
+	mkdir --parents $(BUILD_APP)/src $(BUILD_APP)/lib $(BUILD_APP)/bin
 
 .check-install-dir:
 	@test -n '$(DEST_DIR)' || { \
