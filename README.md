@@ -20,10 +20,12 @@ mais si on n'en fait pas usage, Java 11 suffit.
 
 ## Changer le nom de l'application
 
-Pour changer le nom de l'application, initialement nommée Basic-Quickstart, on peut soit :
+Pour changer le nom de l'application, initialement nommée Basic-Quickstart, il faut modifier la variable APP_NAME dans
+le fichier `.envrc`, par exemple comme suit :
 
-- Changer le nom dans le fichier `.envrc` et lancer `direnv allow` si on utilise `direnv`
-- Préfixer chaque commande par `APP_NAME=LeNouveauNom` sinon
+```bash
+export APP_NAME=MyCmdLine
+```
 
 ## Lancer l'application localement
 
@@ -39,7 +41,7 @@ Bonjour 🇫🇷
 ## Construire le package de l'application
 
 ```bash
-APP_NAME=MyCmdLine make package
+make package
 ```
 
 ```console
@@ -62,7 +64,7 @@ Cela permet d'ajouter plusieurs applications dans le `PATH` et donc d'invoquer d
 ## Installer l'application
 
 ```bash
-DEST_DIR=/home/user APP_NAME=MyCmdLine make install
+DEST_DIR=/home/user make install
 ```
 
 ```console
@@ -72,7 +74,7 @@ unzip -q -d /home/user build/MyCmdLine.zip
 ## Lancer l'application installée
 
 ```bash
-DEST_DIR=/home/user APP_NAME=MyCmdLine make test-install
+DEST_DIR=/home/user make test-install
 ```
 
 ```console

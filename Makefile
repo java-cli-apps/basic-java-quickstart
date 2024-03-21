@@ -32,15 +32,15 @@ clean: ## Nettoyer le répertoire de build
 	mkdir --parents $(BUILD_APP)/src $(BUILD_APP)/lib $(BUILD_APP)/bin
 
 .check-install-dir:
-	@test -n '$(DEST_DIR)' || { \
-		echo "You need to specify an installation directory and an application name, for example 'DEST_DIR=~ APP_NAME=MyCmdLine make install'"; \
-		exit 1; \
-	}
+	$(error Please specify an installation directory, for example DEST_DIR=~ make install)
 
 .PHONY: build
 
-APP_NAME := $(or $(APP_NAME), Basic-Quickstart)
 APP_DIR := $(shell echo $(APP_NAME) | tr '[:upper:]' '[:lower:]')
 BUILD := build
 STARTER_APP := Application
 BUILD_APP := $(BUILD)/$(APP_DIR)
+
+ifndef APP_NAME
+    $(error Please set the application name with the APP_NAME variable before using this Makefile)
+endif
