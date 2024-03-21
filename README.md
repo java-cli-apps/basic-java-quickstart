@@ -20,7 +20,7 @@ mais si on n'en fait pas usage, Java 11 suffit.
 
 ## Changer le nom de l'application
 
-Pour changer le nom de l'application, initialement nommée Basic-Quickstart, il faut modifier la variable APP_NAME dans
+Pour changer le nom de l'application, initialement nommée _Basic-Quickstart_, il faut modifier la variable APP_NAME dans
 le fichier `.envrc`, par exemple comme suit :
 
 ```bash
