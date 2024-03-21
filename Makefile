@@ -1,7 +1,4 @@
-help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
-		| sort \
-		| awk 'BEGIN {FS = ":.*?## "}; { printf("\033[36m%-30s\033[0m %s\n", $$1, $$2) }'
+.DEFAULT_GOAL := help
 
 package: build ## Packager l'application dans un fichier .zip
 	cd $(BUILD) \
@@ -28,6 +25,11 @@ test-install: .check-install-dir ## Tester l'application installée
 clean: ## Nettoyer le répertoire de build
 	rm --force --recursive $(BUILD)
 
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
+		| sort \
+		| awk 'BEGIN {FS = ":.*?## "}; { printf("\033[36m%-30s\033[0m %s\n", $$1, $$2) }'
+
 .prepare-build-dir:
 	mkdir --parents $(BUILD_APP)/src $(BUILD_APP)/lib $(BUILD_APP)/bin
 
@@ -42,5 +44,5 @@ STARTER_APP := Application
 BUILD_APP := $(BUILD)/$(APP_DIR)
 
 ifndef APP_NAME
-    $(error Please set the application name with the APP_NAME variable before using this Makefile)
+    $(error Please set the application name with the APP_NAME variable !)
 endif
