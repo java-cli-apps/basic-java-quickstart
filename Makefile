@@ -44,5 +44,5 @@ STARTER_APP := Application
 BUILD_APP := $(BUILD)/$(APP_DIR)
 
 ifndef APP_NAME
-    $(error Please set the application name with the APP_NAME variable !)
+	$(error Please set the application name with the APP_NAME variable !)
 endif
