@@ -34,7 +34,9 @@ help:
 	mkdir --parents $(BUILD_APP)/src $(BUILD_APP)/lib $(BUILD_APP)/bin
 
 .check-install-dir:
+ifndef DEST_DIR
 	$(error Please specify an installation directory, for example DEST_DIR=~ make install)
+endif
 
 .PHONY: build
 
