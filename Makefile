@@ -35,7 +35,7 @@ help:
 
 .check-install-dir:
 ifndef DEST_DIR
-	$(error Please specify an installation directory, for example DEST_DIR=~ make install)
+	$(error Please set the installation directory, for example DEST_DIR=~ make install)
 endif
 
 .PHONY: build
