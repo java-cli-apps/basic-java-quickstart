@@ -8,15 +8,7 @@ qui permet de lancer un fichier source sans le compiler préalablement.
 
 Le package de l'application comprend le fichier source ainsi que ses dépendances.
 
-Si vous utilisez Java 22, ou une version supérieure, vous pouvez utiliser [basic-java-22-quickstart](https://github.com/java-cli-apps/basic-java-22-quickstart)
-qui permet d'utiliser plusieurs fichiers sources grâce à la [JEP 458](https://openjdk.org/jeps/458).
-
 Pour démarrer une nouvelle application en utilisant ce template, vous pouvez suivre les étapes suivantes.
-
-## Version de Java
-
-Le programme d'exemple proposé ici a besoin de Java 14 car il utilise les [Switch Expressions](https://openjdk.org/jeps/361),
-mais si on n'en fait pas usage, Java 11 suffit.
 
 ## Changer le nom de l'application
 
@@ -87,3 +79,11 @@ Il ne nous reste plus qu'à :
 - Implémenter notre métier dans [Application.java](src/Application.java)
 - Ajouter les [fichiers](src/fr/Hello.java) qui déclarent les classes utilisées par `Application.java`
 - Ajouter les jars de nos dépendances dans le répertoire [lib](lib)
+
+## Autres templates
+
+Le programme d'exemple proposé ici a besoin de Java 14 car il utilise les [Switch Expressions](https://openjdk.org/jeps/361),
+mais si on n'en fait pas usage, Java 11 suffit.
+
+Si vous utilisez Java 22, ou une version supérieure, vous pouvez utiliser [basic-java-22-quickstart](https://github.com/java-cli-apps/basic-java-22-quickstart)
+qui permet d'utiliser plusieurs fichiers sources grâce à la [JEP 458](https://openjdk.org/jeps/458).
