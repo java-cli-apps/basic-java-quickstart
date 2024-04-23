@@ -82,8 +82,7 @@ Il ne nous reste plus qu'à :
 
 ## Autres templates
 
-Le programme d'exemple proposé ici a besoin de Java 14 car il utilise les [Switch Expressions](https://openjdk.org/jeps/361),
-mais si on n'en fait pas usage, Java 11 suffit.
+Le programme d'exemple proposé ici utilise Java 11.
 
 Si vous utilisez Java 22, ou une version supérieure, vous pouvez utiliser [basic-java-22-quickstart](https://github.com/java-cli-apps/basic-java-22-quickstart)
 qui permet d'utiliser plusieurs fichiers sources grâce à la [JEP 458](https://openjdk.org/jeps/458).
