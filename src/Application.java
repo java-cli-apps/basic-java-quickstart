@@ -5,8 +5,6 @@ import net.fellbaum.jemoji.EmojiManager;
 
 import java.util.Optional;
 
-import static java.util.Arrays.stream;
-
 class Main {
     public static void main(String[] args) {
         System.out.println(Language.guess().sayHello());
@@ -41,8 +39,12 @@ enum Language {
     }
 
     private static Optional<Language> byLangPrefix(String langPrefix) {
-        return stream(Language.values())
-                .filter(language -> language.langPrefix.equals(langPrefix))
-                .findAny();
+        if (French.langPrefix.equals(langPrefix)) {
+            return Optional.of(French);
+        } else if (English.langPrefix.equals(langPrefix)) {
+            return Optional.of(English);
+        } else {
+            return Optional.empty();
+        }
     }
 }
