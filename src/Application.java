@@ -1,6 +1,5 @@
 ///usr/bin/env java --class-path ${APP_DIR:-.}/lib/'*' "$0" "$@"; exit $?
 
-import net.fellbaum.jemoji.Emoji;
 import net.fellbaum.jemoji.EmojiManager;
 
 import java.util.Optional;
@@ -30,8 +29,7 @@ enum Language {
     }
 
     String sayHello() {
-        Optional<Emoji> optionalEmoji = EmojiManager.getByAlias(alias);
-        String emoji = optionalEmoji.map(value -> " " + value.getEmoji()).orElse("");
+        String emoji = getEmojiByAlias(alias);
         return switch (this) {
             case French -> "Bonjour " + emoji;
             case English -> "Hello " + emoji;
@@ -46,5 +44,9 @@ enum Language {
         } else {
             return Optional.empty();
         }
+    }
+
+    private static String getEmojiByAlias(String alias) {
+        return EmojiManager.getByAlias(alias).map(value -> " " + value.getEmoji()).orElse("");
     }
 }
