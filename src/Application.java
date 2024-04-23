@@ -15,17 +15,17 @@ enum Language {
     French("fr"), English("en");
 
     private final String alias;
-    private final String langPrefix;
+    private final String prefix;
 
     Language(String alias) {
         this.alias = alias;
-        this.langPrefix = alias;
+        this.prefix = alias;
     }
 
     static Language guess() {
         var langEnvVar = System.getenv("LANG");
         var langPrefix = langEnvVar.substring(0, langEnvVar.indexOf('_'));
-        return byLangPrefix(langPrefix).orElseThrow(() -> new IllegalArgumentException("Unexpected Language: " + langPrefix));
+        return byPrefix(langPrefix).orElseThrow(() -> new IllegalArgumentException("Unexpected Language: " + langPrefix));
     }
 
     String sayHello() {
@@ -36,10 +36,10 @@ enum Language {
         };
     }
 
-    private static Optional<Language> byLangPrefix(String langPrefix) {
-        if (French.langPrefix.equals(langPrefix)) {
+    private static Optional<Language> byPrefix(String prefix) {
+        if (French.prefix.equals(prefix)) {
             return Optional.of(French);
-        } else if (English.langPrefix.equals(langPrefix)) {
+        } else if (English.prefix.equals(prefix)) {
             return Optional.of(English);
         } else {
             return Optional.empty();
