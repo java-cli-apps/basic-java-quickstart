@@ -77,7 +77,7 @@ Bonjour 🇫🇷
 Il ne nous reste plus qu'à :
 
 - Implémenter notre métier dans [Application.java](src/Application.java)
-- Ajouter les [fichiers](src/fr/Hello.java) qui déclarent les classes utilisées par `Application.java`
+- Ajouter dans le fichier `Application.java` les classes utilisées par la classe `Main`
 - Ajouter les jars de nos dépendances dans le répertoire [lib](lib)
 
 ## Autres templates

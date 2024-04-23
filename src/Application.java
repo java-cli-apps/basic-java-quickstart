@@ -29,7 +29,7 @@ enum Language {
     }
 
     String sayHello() {
-        String emoji = getEmojiByAlias(alias);
+        String emoji = Emoji.byAlias(alias);
         return switch (this) {
             case French -> "Bonjour " + emoji;
             case English -> "Hello " + emoji;
@@ -45,8 +45,10 @@ enum Language {
             return Optional.empty();
         }
     }
+}
 
-    private static String getEmojiByAlias(String alias) {
+class Emoji {
+    static String byAlias(String alias) {
         return EmojiManager.getByAlias(alias).map(value -> " " + value.getEmoji()).orElse("");
     }
 }
