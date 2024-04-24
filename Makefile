@@ -30,18 +30,18 @@ help:
 		| sort \
 		| awk 'BEGIN {FS = ":.*?## "}; { printf("\033[36m%-30s\033[0m %s\n", $$1, $$2) }'
 
-.prepare-build-dir:
-	mkdir --parents $(BUILD_APP)/src $(BUILD_APP)/lib $(BUILD_APP)/bin
+.check-app-name:
+ifndef APP_NAME
+	$(error Please set the application name with the APP_NAME variable)
+endif
 
 .check-install-dir:
 ifndef DEST_DIR
 	$(error Please set the installation directory, for example DEST_DIR=~ make install)
 endif
 
-.check-app-name:
-ifndef APP_NAME
-	$(error Please set the application name with the APP_NAME variable !)
-endif
+.prepare-build-dir:
+	mkdir --parents $(BUILD_APP)/src $(BUILD_APP)/lib $(BUILD_APP)/bin
 
 .PHONY: build
 
