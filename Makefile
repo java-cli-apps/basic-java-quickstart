@@ -4,13 +4,13 @@ package: build ## Packager l'application dans un fichier .zip
 	cd $(BUILD) \
 		&& zip --quiet --recurse-paths $(APP_NAME).zip $(APP_DIR)
 
-build: .prepare-build-dir ## Construire l'application
+build: .check-app-name .prepare-build-dir ## Construire l'application
 	cp --update --recursive src lib bin $(BUILD_APP)
 	cd $(BUILD_APP) \
 		&& mv src/$(STARTER_APP).java src/$(APP_NAME).java \
 		&& mv bin/$(STARTER_APP).sh bin/$(APP_NAME).sh
 
-install: .check-install-dir ## Installer le package de l'application
+install: .check-app-name .check-install-dir ## Installer le package de l'application
 	unzip -q -d $(DEST_DIR) $(BUILD)/$(APP_NAME).zip
 
 test: ## Tester l'application localement
@@ -19,7 +19,7 @@ test: ## Tester l'application localement
 test-from-java: ## Tester l'application localement (en lançant le fichier .java)
 	./src/$(STARTER_APP).java
 
-test-install: .check-install-dir ## Tester l'application installée
+test-install: .check-app-name .check-install-dir ## Tester l'application installée
 	PATH=$(DEST_DIR)/$(APP_DIR)/bin:$(PATH) $(APP_NAME).sh
 
 clean: ## Nettoyer le répertoire de build
@@ -38,13 +38,14 @@ ifndef DEST_DIR
 	$(error Please set the installation directory, for example DEST_DIR=~ make install)
 endif
 
+.check-app-name:
+ifndef APP_NAME
+	$(error Please set the application name with the APP_NAME variable !)
+endif
+
 .PHONY: build
 
 APP_DIR := $(shell echo $(APP_NAME) | tr '[:upper:]' '[:lower:]')
 BUILD := build
 STARTER_APP := Application
 BUILD_APP := $(BUILD)/$(APP_DIR)
-
-ifndef APP_NAME
-	$(error Please set the application name with the APP_NAME variable !)
-endif
