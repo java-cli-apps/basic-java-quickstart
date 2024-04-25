@@ -2,8 +2,6 @@
 
 import net.fellbaum.jemoji.EmojiManager;
 
-import java.util.Optional;
-
 class Main {
     public static void main(String[] args) {
         System.out.println(Language.guess().sayHello());
@@ -25,7 +23,7 @@ enum Language {
     static Language guess() {
         var langEnvVar = System.getenv("LANG");
         var langPrefix = langEnvVar.substring(0, langEnvVar.indexOf('_'));
-        return byPrefix(langPrefix).orElseThrow(() -> new IllegalArgumentException("Unexpected Language: " + langPrefix));
+        return byPrefix(langPrefix);
     }
 
     String sayHello() {
@@ -39,13 +37,13 @@ enum Language {
         }
     }
 
-    private static Optional<Language> byPrefix(String prefix) {
+    private static Language byPrefix(String prefix) {
         if (French.prefix.equals(prefix)) {
-            return Optional.of(French);
+            return French;
         } else if (English.prefix.equals(prefix)) {
-            return Optional.of(English);
+            return English;
         } else {
-            return Optional.empty();
+            throw new IllegalArgumentException("Unexpected Language: " + prefix);
         }
     }
 }
