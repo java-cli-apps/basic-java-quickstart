@@ -45,7 +45,10 @@ endif
 
 .PHONY: build
 
+ifndef APP_DIR
 APP_DIR := $(shell echo $(APP_NAME) | tr '[:upper:]' '[:lower:]')
+endif
+
 BUILD := build
 STARTER_APP := Application
 BUILD_APP := $(BUILD)/$(APP_DIR)
