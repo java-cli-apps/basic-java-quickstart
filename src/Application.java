@@ -1,4 +1,4 @@
-///usr/bin/env java --source 11 --class-path ${APP_DIR:-.}/lib/'*' "$0" "$@"; exit $?
+///usr/bin/env java --class-path ${APP_DIR:-.}/lib/'*' "$0" "$@"; exit $?
 
 import net.fellbaum.jemoji.EmojiManager;
 
