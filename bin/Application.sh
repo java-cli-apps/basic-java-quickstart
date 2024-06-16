@@ -9,13 +9,12 @@ get_absolute_path() {
 }
 
 get_application_dir() {
-  local bin_dir=$(get_absolute_path "$(dirname "$1")")
-  dirname "${bin_dir}"
+    dirname "$(dirname "$(get_absolute_path "$1")")"
 }
 
 get_application_file() {
-  local startup_script=$(basename "$1")
-  echo ${startup_script/sh/java}
+    startup_script=$(basename "$1")
+    echo "${startup_script/sh/java}"
 }
 
 app_dir=$(get_application_dir "$0")
