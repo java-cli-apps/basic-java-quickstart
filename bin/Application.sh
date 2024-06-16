@@ -5,7 +5,7 @@ get_absolute_path() {
         /*) path="$1";;
         *)  path="$(pwd)/$1";;
     esac
-    realpath "$path"
+    realpath "${path}"
 }
 
 get_application_dir() {
