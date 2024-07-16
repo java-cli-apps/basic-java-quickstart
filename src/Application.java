@@ -50,6 +50,6 @@ enum Language {
 
 class Emoji {
     static String byAlias(String alias) {
-        return EmojiManager.getByAlias(alias).map(value -> " " + value.getEmoji()).orElse("");
+        return EmojiManager.getByAlias(alias).map(value -> "" + value.getEmoji()).orElse("");
     }
 }
