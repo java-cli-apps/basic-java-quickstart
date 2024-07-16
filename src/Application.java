@@ -3,7 +3,7 @@
 import net.fellbaum.jemoji.EmojiManager;
 
 class Main {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         System.out.println(Language.guess().sayHello());
         System.exit(0);
     }
