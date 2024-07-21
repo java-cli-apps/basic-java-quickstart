@@ -3,7 +3,7 @@
 Le template **basic-java-quickstart** permet de démarrer une nouvelle application en commande ligne avec Java sans
 utiliser aucun système de build (autre que `make`).
 
-Ce template nécessite d'utiliser Java 11, ou une version supérieure, car il utilise la [JEP 330](https://openjdk.org/jeps/330)
+Ce template nécessite d'utiliser Java 11 ou une version supérieure car il utilise la [JEP 330](https://openjdk.org/jeps/330)
 qui permet de lancer un fichier source sans le compiler préalablement.
 
 Le package de l'application comprend le fichier source ainsi que ses dépendances.
@@ -84,5 +84,5 @@ Il ne nous reste plus qu'à :
 
 Le programme d'exemple proposé ici utilise Java 11.
 
-Si vous utilisez Java 22, ou une version supérieure, vous pouvez utiliser [basic-java-22-quickstart](https://github.com/java-cli-apps/basic-java-22-quickstart)
+Si vous utilisez Java 22 ou une version supérieure vous pouvez utiliser [basic-java-22-quickstart](https://github.com/java-cli-apps/basic-java-22-quickstart)
 qui permet d'utiliser plusieurs fichiers sources grâce à la [JEP 458](https://openjdk.org/jeps/458).
