@@ -1,15 +1,18 @@
 ///usr/bin/env java --class-path ${APP_DIR}/lib/'*' "$0" "$@"; exit $?
 
+import net.fellbaum.jemoji.Emoji;
 import net.fellbaum.jemoji.EmojiManager;
 
 class Main {
     public static void main(String... args) {
-        System.out.println(Language.guess().sayHello());
+        var language = Language.guess();
+        System.out.println(language.sayHello());
     }
 }
 
 enum Language {
-    French("fr"), English("en");
+    French("fr"),
+    English("en");
 
     private final String alias;
     private final String prefix;
@@ -26,7 +29,8 @@ enum Language {
     }
 
     String sayHello() {
-        String emoji = Emoji.byAlias(alias);
+        var optionalEmoji = EmojiManager.getByAlias(alias);
+        var emoji = optionalEmoji.map(Emoji::getEmoji).orElse("");
         if (this == French) {
             return "Bonjour " + emoji;
         } else if (this == English) {
@@ -44,11 +48,5 @@ enum Language {
         } else {
             throw new IllegalArgumentException("Unexpected Language: " + prefix);
         }
-    }
-}
-
-class Emoji {
-    static String byAlias(String alias) {
-        return EmojiManager.getByAlias(alias).map(value -> "" + value.getEmoji()).orElse("");
     }
 }
