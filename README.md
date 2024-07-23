@@ -6,7 +6,7 @@ utiliser aucun système de build (autre que `make`).
 Ce template nécessite d'utiliser Java 11 ou une version supérieure car il utilise la [JEP 330](https://openjdk.org/jeps/330)
 qui permet de lancer un fichier source sans le compiler préalablement.
 
-## Créer un dépôt à partir de ce template
+## Créer un dépôt depuis ce template
 
 Après avoir [créé le dépôt GitHub](https://github.com/new?template_name=basic-java-quickstart&template_owner=java-cli-apps)
 de votre nouvelle application à partir de ce template, vous pouvez suivre les étapes suivantes pour construire votre application.
