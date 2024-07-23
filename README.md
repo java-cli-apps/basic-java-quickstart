@@ -6,18 +6,23 @@ utiliser aucun système de build (autre que `make`).
 Ce template nécessite d'utiliser Java 11 ou une version supérieure car il utilise la [JEP 330](https://openjdk.org/jeps/330)
 qui permet de lancer un fichier source sans le compiler préalablement.
 
-Pour démarrer une nouvelle application en utilisant ce template, vous pouvez suivre les étapes suivantes.
+## Créer un dépôt à partir de ce template
 
-## Changer le nom de l'application
+Après avoir [créé le dépôt GitHub](https://github.com/new?template_name=basic-java-quickstart&template_owner=java-cli-apps)
+de votre nouvelle application à partir de ce template, vous pouvez suivre les étapes suivantes pour construire votre application.
 
-Pour changer le nom de l'application, initialement nommée _BasicQuickstart_, il faut modifier la variable APP_NAME dans
-le fichier `.envrc`, par exemple comme suit :
+## Construire votre application
+
+### Changer le nom de l'application
+
+Pour changer le nom de l'application, initialement nommée _BasicQuickstart_, il faut modifier la variable `APP_NAME`
+dans le terminal ou dans le fichier `.envrc`, comme suit :
 
 ```bash
 export APP_NAME=MyCmdLine
 ```
 
-## Lancer l'application localement
+### Lancer l'application localement
 
 ```bash
 make test
@@ -28,7 +33,7 @@ make test
 Bonjour 🇫🇷
 ```
 
-## Construire le package de l'application
+### Construire le package de l'application
 
 Le package de l'application comprend le fichier source ainsi que ses dépendances.
 
@@ -46,14 +51,14 @@ cd build \
 	&& zip --quiet --recurse-paths MyCmdLine.zip MyCmdLine
 ```
 
-### Shell de lancement
+#### Shell de lancement
 
 Le script de lancement [Application.sh](bin/Application.sh), dont le rôle est de lancer le fichier
 [Application.java](src/Application.java), est renommé lors de la construction du package en `MyCmdLine.sh`.
 
 Cela permet d'ajouter plusieurs applications dans le `PATH` et donc d'invoquer directement `MyCmdLine.sh`.
 
-## Installer l'application
+### Installer l'application
 
 ```bash
 DEST_DIR=/home/user make install
@@ -63,7 +68,7 @@ DEST_DIR=/home/user make install
 unzip -q -d /home/user build/MyCmdLine.zip
 ```
 
-## Lancer l'application installée
+### Lancer l'application installée
 
 ```bash
 DEST_DIR=/home/user make test-install
