@@ -79,7 +79,7 @@ $ DEST_DIR=/home/user make test-install
 ```
 
 ```console
-PATH=/home/user/MyCmdLine/bin:/usr/lib/jvm/jdk-22/bin:/home/fopy/.local/bin:... MyCmdLine.sh
+PATH=/home/user/MyCmdLine/bin:/usr/lib/jvm/zulu11/bin:/home/fopy/.local/bin:... MyCmdLine.sh
 Bonjour 🇫🇷
 ```
 
