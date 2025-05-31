@@ -17,7 +17,7 @@ test: ## Tester l'application localement
 	./bin/$(STARTER_APP).sh
 
 test-from-java: ## Tester l'application localement (en lançant le fichier .java)
-	APP_DIR=. ./src/$(STARTER_APP).java
+	./src/$(STARTER_APP).java
 
 test-install: .check-app-name .check-install-dir ## Tester l'application installée
 	PATH=$(DEST_DIR)/$(APP_DIR)/bin:$(PATH) $(APP_NAME).sh
