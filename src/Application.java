@@ -3,6 +3,9 @@
 import net.fellbaum.jemoji.Emoji;
 import net.fellbaum.jemoji.EmojiManager;
 
+import java.util.List;
+import java.util.Optional;
+
 class Main {
     public static void main(String... args) {
         var language = Language.guess();
@@ -29,8 +32,8 @@ enum Language {
     }
 
     String sayHello() {
-        var optionalEmoji = EmojiManager.getByAlias(alias);
-        var emoji = optionalEmoji.map(Emoji::getEmoji).orElse("");
+        Optional<List<Emoji>> optionalEmoji = EmojiManager.getByAlias(alias);
+        var emoji = optionalEmoji.map(Language::getFirstEmoji).orElse("");
         if (this == French) {
             return "Bonjour " + emoji;
         } else if (this == English) {
@@ -48,5 +51,9 @@ enum Language {
         } else {
             throw new IllegalArgumentException("Unexpected Language: " + prefix);
         }
+    }
+
+    private static String getFirstEmoji(List<Emoji> emojis) {
+        return emojis.isEmpty() ? "" : emojis.get(0).getEmoji();
     }
 }
