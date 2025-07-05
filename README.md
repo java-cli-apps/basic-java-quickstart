@@ -6,6 +6,12 @@ utiliser aucun système de build (autre que `make`).
 Ce template nécessite d'utiliser Java 11 ou une version supérieure car il utilise la [JEP 330](https://openjdk.org/jeps/330)
 qui permet de lancer un fichier source sans le compiler préalablement.
 
+# ⚠ Dépôt archivé
+
+Ce dépôt va être **archivé** et ne sera plus **mis à jour**.
+
+Vous pouvez consulter les [autres templates](#autres-templates) qui eux sont maintenus.
+
 ## Créer un dépôt depuis ce template
 
 Pour créer un dépôt depuis ce template, on procédera comme suit :
