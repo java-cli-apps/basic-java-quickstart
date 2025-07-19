@@ -1,6 +1,6 @@
 # Un template d'Application en Ligne de Commande (CLI) avec Java et la JEP 330
 
-Le template **basic-java-quickstart** permet de démarrer une nouvelle application en commande ligne avec Java sans
+Le template **basic-java-11-quickstart** permet de démarrer une nouvelle application en commande ligne avec Java sans
 utiliser aucun système de build (autre que `make`).
 
 Ce template nécessite d'utiliser Java 11 ou une version supérieure car il utilise la [JEP 330](https://openjdk.org/jeps/330)
@@ -8,7 +8,7 @@ qui permet de lancer un fichier source sans le compiler préalablement.
 
 # ⚠ Dépôt archivé
 
-Ce dépôt va être **archivé** et ne sera plus **mis à jour**.
+Ce dépôt est maintenant **archivé** et ne sera plus **mis à jour**.
 
 Vous pouvez consulter les [autres templates](#autres-templates) qui eux sont maintenus.
 
@@ -20,7 +20,7 @@ Pour créer un dépôt depuis ce template, on procédera comme suit :
 
 ## Construire votre application
 
-Après avoir [créé le dépôt GitHub](https://github.com/new?template_name=basic-java-quickstart&template_owner=java-cli-apps)
+Après avoir [créé le dépôt GitHub](https://github.com/new?template_name=basic-java-11-quickstart&template_owner=java-cli-apps)
 de votre nouvelle application à partir de ce template, vous pouvez suivre les étapes suivantes pour construire votre application.
 
 ### Changer le nom de l'application
